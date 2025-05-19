@@ -1,0 +1,21 @@
+[project]
+name = "max-films-staff-pick-tracker"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "georgeoffley",email = "geo.offley@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "feedparser (>=6.0.11,<7.0.0)",
+    "bs4 (>=0.0.2,<0.0.3)"
+]
+
+[tool.poetry]
+packages = [{include = "max_films_staff_pick_tracker", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
