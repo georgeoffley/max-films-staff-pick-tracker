@@ -3,23 +3,37 @@ from bs4 import BeautifulSoup
 
 FEED_URL = 'https://feeds.simplecast.com/3vVrWdfk'
 
-def get_all_episodes(url: str) -> list[str]:
-    d = feedparser.parse(url)
-    episodes_from_feed = d.entries
-
+def get_episodes(feed: str) -> list[str]:
+    episodes_from_feed = feed.entries
+    
     return episodes_from_feed
 
-def parse_staff_picks(value: str) -> list[str]:
-    return 0
-
-# feed_value_example = d.entries[1].content[0]['value'] # Gets the value string which is html and containts our staff picks
+def get_episode_content(episode_item: list) -> dict:
+    return episode_item.content[0]
 
 # soup = BeautifulSoup(feed_value_example, 'html.parser')
 
 # print(soup.find_all('p'))
 
 def main():
-    get_all_episodes(FEED_URL)
+    # Get Feed
+    feed_res = None
+    try:
+        feed_res = feedparser.parse(FEED_URL)
+    except:
+        raise Exception("Error fetching feed results")
+
+    # Get episodes from feed
+    episodes_from_feed = get_episodes(feed_res)
+
+    # Get content field
+    episodes_content = []
+    for episode in episodes_from_feed:
+        episodes_content.append(get_episode_content(episode))
+
+    # TODO: Parse out episode content to get staff picks
+    
+    # print(episodes_content)
 
 if __name__ == "__main__":
     main()
