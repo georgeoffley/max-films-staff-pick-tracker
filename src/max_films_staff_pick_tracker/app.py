@@ -27,6 +27,6 @@ if __name__ == "__main__":
 # Steps for this app (first iteration)
 # 1. Start app and fetch the rss feed
 # 2. Loop through each episode
-# 3. Parse the staff picks
-# 4. Make them a pretty list with date, episode, and each pick should have the staff name, move, and if available, the provided movie link
-# 5. Print the list of staff picks for each episode
+#   a. Parse the staff picks
+#   b. Make them a pretty list with date, episode, and each pick should have the staff name, move, and if available, the provided movie link
+#   c. Print the list of staff picks for each episode
